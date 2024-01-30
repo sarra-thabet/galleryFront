@@ -1,0 +1,37 @@
+/* Popup.css */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color:rgba(93, 187, 93, 0.9); /* Light green background with transparency */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle elevation */
+    color: #fff; /* Text color */
+    font-family: 'Arial', sans-serif;
+    z-index: 1000;
+    width: 300px; /* Adjust the width as needed */
+    text-align: center;
+  }
+  
+  .popup-content {
+    text-align: center;
+  }
+  
+  button {
+    background-color: #fff; /* White background for the button */
+    color: rgba(93, 187, 93, 0.9); /* Text color matching the popup background */
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 10px;
+  }
+  
+  button:hover {
+    background-color: rgba(255, 255, 255, 0.8); /* Lighten the background on hover */
+    color: #006400; /* Darken the text color on hover */
+  }
+  
