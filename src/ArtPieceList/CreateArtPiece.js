@@ -20,6 +20,7 @@ export default function CreateArtPiece({ showModal, closeModal }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(inputs);
     const formData = new FormData();
     formData.append("title", inputs.title);
     formData.append("description", inputs.description);

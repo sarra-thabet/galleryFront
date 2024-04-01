@@ -124,6 +124,7 @@ padding-left: 20px;
     padding: 0 15px;
     transition: all 0.3s;
     cursor: pointer;
+    display: flex;
   }
   
   .sell-creations-card-btn svg {

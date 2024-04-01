@@ -18,7 +18,6 @@ const Home = () => {
         <Services />
         <SellCreations/>
         <Contact  />
-
         <Footer />
       
     </div>

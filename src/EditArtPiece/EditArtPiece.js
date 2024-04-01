@@ -10,39 +10,42 @@ export default function EditArtPiece({
   const [inputs, setInputs] = useState({
     title: "",
     description: "",
-    image: null,
+    image:null
   });
   const handleChange = (event) => {
     if (event.target.name === "image") {
       const file = event.target.files[0];
       setInputs({ ...inputs, image: file });
+      console.log(inputs.image);
+     
     } else {
       setInputs({ ...inputs, [event.target.name]: event.target.value });
+     
     }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Create a FormData object to send the file
+  
+    // Prepare the data to be sent in the request body
     const formData = new FormData();
     formData.append("title", inputs.title);
     formData.append("description", inputs.description);
     formData.append("image", inputs.image);
-
-    // Make an API call to update the art piece
+    console.log(formData);
     axios
       .put(
         `http://localhost/art-gallery/backend/artpieceApi.php/api?id=${artPieceToEdit.id}`,
-        formData,
+      formData,
         {
-          headers: { "Content-Type": "multipart/form-data" },
+          headers: { "Content-Type": "application/json" }, // Set content type to application/json
         }
       )
       .then((response) => {
         console.log(response.data);
         // Close the modal or perform any other action
         closeEditModal();
+        window.location.reload();
         // Optionally, you can refresh the art pieces list after the update
         // ...
       })
@@ -50,6 +53,7 @@ export default function EditArtPiece({
         console.error("Error updating art piece:", error);
       });
   };
+  
 
   useEffect(() => {
     // Populate form fields if artPieceToEdit is provided
@@ -57,7 +61,8 @@ export default function EditArtPiece({
       setInputs({
         title: artPieceToEdit.title,
         description: artPieceToEdit.description,
-        image: null, // You might need to handle images differently
+        image:artPieceToEdit.image,
+        // You might need to handle images differently
       });
     }
   }, [artPieceToEdit]);
@@ -94,7 +99,7 @@ export default function EditArtPiece({
               />
             </div>
             <div className="mb-3">
-              <label class="custum-file-upload" for="file">
+              <label class="custum-file-upload" >
                 <div class="icon">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

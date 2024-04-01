@@ -8,7 +8,10 @@
     border-radius: 10px;
     position: relative;
   }
-  
+  .success{
+    color: green;
+
+  }
   .message {
     color: #B197FC;
     font-size: 14px;

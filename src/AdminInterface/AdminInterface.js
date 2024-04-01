@@ -12,8 +12,8 @@ import {
 } from "react-router-dom";
 import { ListArtPiece } from "../ArtPieceList/ListArtPiece";
 import { ClientsList } from "../ClientsList/ClientsList";
-import { Dashboard } from "../dashboard/Dashboard";
 import { CreationsList } from "../CreationsList/CreationsList";
+import { OrdersList } from "../OrdersList/OrdersList";
 
 const AdminInterface = () => {
   const navigate = useNavigate();
@@ -47,6 +47,11 @@ const AdminInterface = () => {
                 Manage Creations
               </Link>
             </li>
+            <li>
+              <Link to="AdminInterface/orders" className="no-underline">
+                Manage Orders
+              </Link>
+            </li>
             <button class="Btn logout" onClick={handleLogOut}>
               <div class="sign">
                 <svg viewBox="0 0 512 512">
@@ -72,10 +77,10 @@ const AdminRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<AdminInterface />}>
-        <Route index element={<Dashboard />} />
         <Route path="AdminInterface/art-pieces" element={<ListArtPiece />} />
         <Route path="AdminInterface/clients" element={<ClientsList />} />
         <Route path="AdminInterface/creations" element={<CreationsList />} />
+        <Route path="AdminInterface/orders" element={<OrdersList />} />
       </Route>
     </Routes>
   );

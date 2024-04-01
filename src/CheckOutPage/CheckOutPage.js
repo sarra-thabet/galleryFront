@@ -5,18 +5,32 @@ import { useParams } from "react-router-dom";
 import PopUp from '../Popup/PopUp';
 import axios from "axios";
 export const CheckOutPage = () => {
+  const [inputs ,setinput]= useState(
+    {
+    fname:'',
+    lname:'',
+    email:'',
+    number:''
+    }
+  )
   const [product, setProduct] = useState({});
   const [showPopup, setShowPopup] = useState(false);
   const { id } = useParams();
   const handleOrderConfirmation = (e) => {
     e.preventDefault();
     setShowPopup(true);
-
-   
+    setinput({ fname:'',
+    lname:'',
+    email:'',
+    number:''})
     setTimeout(() => {
       setShowPopup(false);
     }, 5000);
+    axios.post('http://localhost/art-gallery/backend/ordersApi.php',inputs);
   };
+ const handleChange=(e)=>{
+    setinput({...inputs,[e.target.name]: e.target.value})
+   }
   useEffect(() => {
     axios
       .get(`http://localhost/art-gallery/backend/creationsApi.php/api?id=${id}`)
@@ -30,6 +44,7 @@ export const CheckOutPage = () => {
       });
   }, [id]);
 
+
   return (
     <div className="check-out-page">
       <div className="check-out-page-product">
@@ -41,33 +56,30 @@ export const CheckOutPage = () => {
         </div>
       </div>
       <div className="check-out-page-form">
-      <h1 className="font">Payment Information</h1>
+      <h1 className="font">Order Informations</h1>
       <form className="form" >
       <div className="flex">
         <label>
-          <input required="" placeholder="" name='fname' type="text" className="input" />
+          <input required="" placeholder="" value={inputs.fname} name='fname' type="text" className="input" onChange={handleChange} />
           <span>first name</span>
         </label>
 
         <label>
-          <input required="" placeholder="" type="text" name='lname' className="input" />
+          <input required="" placeholder="" value={inputs.lname}  type="text" name='lname' className="input" onChange={handleChange} />
           <span>last name</span>
         </label>
       </div>
 
       <label>
-        <input required="" placeholder="" type="email" name='email'className="input" />
+        <input required="" placeholder="" value={inputs.email}  type="email" name='email'className="input" onChange={handleChange}  />
         <span>email</span>
       </label>
 
       <label>
-        <input required="" placeholder="" type="tel" name='number' className="input"/>
+        <input required="" placeholder="" value={inputs.number}  type="tel" name='number' className="input" onChange={handleChange} />
         <span>contact number</span>
       </label>
-      <label>
-        <input required="" placeholder="" type="text" name='number' className="input"/>
-        <span>Country</span>
-      </label>
+    
      
 
       <button className="fancy" href="#" onClick={handleOrderConfirmation}>Order Now

@@ -1,6 +1,8 @@
 import "./Portfolio.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPalette } from "@fortawesome/free-solid-svg-icons";
 
 import React ,{ useState, useEffect } from "react";
 import axios from "axios";
@@ -32,7 +34,10 @@ function Portfolio() {
     <>
        <Header></Header>
       <div className="container-portfolio">
-        <h1 className="Portfolio__title">Portfolio</h1>
+      <div className="about-me-title font">
+        <FontAwesomeIcon icon={faPalette} style={{ color: "#B197FC" }} />
+        <h1>My Commissions</h1>
+      </div>
         <div className="artpiece">
             {artPieces.map((artPiece) => (
               <div key={artPiece.id}>

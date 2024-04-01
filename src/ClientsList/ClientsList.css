@@ -1,7 +1,6 @@
 .Clients-list h2{
     margin-bottom: 50px;
 }
-
 .styled-table {
     width: 100%;
     border-collapse: collapse;
@@ -59,7 +58,29 @@
     transition-duration: .5s;
   }
   /* hover effect on button width */
- 
+  .Btn:hover {
+    width: 150px;
+    border-radius: 0px;
+    transition-duration: .5s;
+    background-color: #855675;
+  }
+  
+  .Btn:hover .sign {
+    width: 30%;
+    transition-duration: .3s;
+    padding-left: 20px;
+  }
+  /* hover effect button's text */
+  .Btn:hover .text {
+    opacity: 1;
+    width: 70%;
+    transition-duration: .3s;
+    padding-right: 20px;
+  }
+  /* button click effect*/
+  .Btn:active {
+    transform: translate(2px ,2px);
+  }
   .pagination-button {
     /* Variables */
     --button_radius: 0.75em;
@@ -99,8 +120,8 @@
     width: 100%;
   }
   .delete-button {
-    width: 40px;
-    height: 40px;
+    width: 47px;
+    height: 47px;
     border-radius: 50%;
     background-color: rgb(20, 20, 20);
     border: none;
@@ -116,7 +137,7 @@
   }
   
   .delete-svgIcon {
-    width: 15px;
+    width: 30px;
     transition-duration: 0.3s;
   }
   
@@ -125,7 +146,7 @@
   }
   
   .delete-button:hover {
-    width: 90px;
+    width: 120px;
     border-radius: 50px;
     transition-duration: 0.3s;
     background-color: rgb(255, 69, 69);
@@ -133,7 +154,7 @@
   }
   
   .delete-button:hover .delete-svgIcon {
-    width: 20px;
+    width: 15px;
     transition-duration: 0.3s;
     transform: translateY(60%);
     -webkit-transform: rotate(360deg);
@@ -148,7 +169,7 @@
     content: "Delete";
     color: white;
     transition-duration: 0.3s;
-    font-size: 2px;
+    font-size: 40px;
   }
   
   .delete-button:hover::before {
@@ -160,13 +181,14 @@
     transition-duration: 0.3s;
   }
   .edit-button {
-    width: 40px;
-    height: 40px;
+    width: 47px;
+    height: 47px;
     border-radius: 50%;
     background-color: rgb(20, 20, 20);
     border: none;
     font-weight: 600;
     display: flex;
+    font-size: 20px;
     align-items: center;
     justify-content: center;
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.164);
@@ -178,7 +200,7 @@
   }
   
   .edit-svgIcon {
-    width: 17px;
+    width: 15px;
     transition-duration: 0.3s;
   }
   
@@ -195,7 +217,7 @@
   }
   
   .edit-button:hover .edit-svgIcon {
-    width: 20px;
+    width: 15px;
     transition-duration: 0.3s;
     transform: translateY(60%);
     -webkit-transform: rotate(360deg);
@@ -210,7 +232,7 @@
     content: "Edit";
     color: white;
     transition-duration: 0.3s;
-    font-size: 2px;
+    font-size: 20px;
   }
   
   .edit-button:hover::before {
